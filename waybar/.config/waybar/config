@@ -1,0 +1,106 @@
+{
+    "layer": "top",
+    "position": "top",
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["custom/music"],
+    "modules-right": ["pulseaudio", "backlight", "battery", "clock", "cpu", "temperature", "tray", "custom/lock", "custom/power"],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "sort-by-name": true,
+        "format": " {icon} ",
+        "format-icons": {
+            "empty": "",     // workspace vuoto → pallino vuoto
+            "active": "",    // workspace attivo → pallino pieno
+            "default": ""    // workspace con finestre ma non attivo
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+
+    "custom/music": {
+        "format": "  {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
+    },
+
+    "clock": {
+        "timezone": "Europe/Rome",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "   {:%d/%m/%Y}",
+        "format": "   {:%H:%M}"
+    },
+    
+    "cpu": {
+    "format": "  {usage}%",
+    "tooltip": true,
+    "interval": 2,
+    "on-click": "kitty -e btop"
+    },
+
+    "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+    "critical-threshold": 85,
+    "format": "{temperatureC}°C ",
+    "interval": 2
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "battery": {
+    "states": {
+        "critical": 20,
+        "warning": 49,
+        "good": 100
+    },
+    "format": "{icon}   {capacity}%",
+    "tooltip": false,
+    "on-click": "/home/kerberos/.config/waybar/set_governor.sh",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-icons": [
+        "", "", "", "", ""
+    ]
+    },
+
+    "pulseaudio": {
+        "format": "{icon}   {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "sh -c '(sleep 0.5s; hyprlock --grace 0)' & disown",
+        "format": ""
+    },
+
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wleave &",
+        "format": ""
+    }
+}
+

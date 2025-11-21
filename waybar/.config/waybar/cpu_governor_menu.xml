@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<openbox_pipe_menu>
+    <item label="POWER-SAVE">
+        <action name="Execute">
+            <command>/home/kerberos/.config/waybar/set_governor.sh powersave</command>
+        </action>
+    </item>
+    <item label="NORMAL">
+        <action name="Execute">
+            <command>/home/kerberos/.config/waybar/set_governor.sh ondemand</command>
+        </action>
+    </item>
+    <item label="TURBO">
+        <action name="Execute">
+            <command>/home/kerberos/.config/waybar/set_governor.sh performance</command>
+        </action>
+    </item>
+</openbox_pipe_menu>
+
