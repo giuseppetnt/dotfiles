@@ -26,3 +26,20 @@ Questi dotfiles sono strutturati per funzionare tramite **GNU Stow**, in modo pu
 ```bash
 git clone git@github.com:giuseppetnt/dotfiles.git ~/dotfiles
 cd ~/dotfiles
+```
+
+### 2. Rendi eseguibile lo script
+
+```bash
+chmod +x install.sh
+```
+
+### 3 Esegui
+
+```bash
+./install.sh
+```
+
+Hyprland shoot!
+
+![Logo Arch Linux](/home/kerberos/dotfiles/_img/2025-11-21-205516_hyprshot.png)
